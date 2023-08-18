@@ -113,7 +113,7 @@ app.post("/myTenant", (req, res) => {
   });
 });
 
-/* Navid (Tenant Part) */
+/* Azmain Ibn Kausar (Tenant Part) */
 app.post("/allPost", (req, res) => {
   const sql = "SELECT * FROM landlordpost ";
   dbUser.query(sql, (err, data) => {
@@ -191,7 +191,7 @@ app.post("/report", (req, res) => {
     req.body.userName,
     req.body.userEmail,
   ];
-  console.log(values);
+  console.log('v',values);
   dbUser.query(sql, [values], (err, data) => {
     if (err) {
       return res.json("Error");
