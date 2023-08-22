@@ -64,27 +64,6 @@ app.post("/login", (req, res) => {
 });
 
 /* Suraiya (Landlord Part) */
-app.post("/post", (req, res) => {
-  const sql =
-    "INSERT INTO landlordpost (`apartment_no`,`apartment_area`,`apartment_type`,`photo_url`,`apartment_rent`,`landlord_id`,`landlord_name`,`landlord_email`,`landlord_img`) VALUES (?)";
-  const values = [
-    req.body.houseNo,
-    req.body.area,
-    req.body.type,
-    req.body.photo_url,
-    req.body.rent,
-    req.body.userId,
-    req.body.userName,
-    req.body.userEmail,
-    req.body.userImg,
-  ];
-  dbUser.query(sql, [values], (err, data) => {
-    if (err) {
-      return res.json("Error");
-    }
-    return res.json(data);
-  });
-});
 
 app.post("/myPost", (req, res) => {
   const sql =
@@ -118,6 +97,7 @@ app.post("/myTenant", (req, res) => {
 
 /* Navid (Tenant Part) */
 
+/* Azmain Ibn Kausar (Tenant Part) */
 app.post("/allPost", (req, res) => {
   const sql = "SELECT * FROM landlordpost ";
   dbUser.query(sql, (err, data) => {
@@ -209,7 +189,7 @@ app.post("/report", (req, res) => {
     req.body.userName,
     req.body.userEmail,
   ];
-  console.log(values);
+  console.log("v", values);
   dbUser.query(sql, [values], (err, data) => {
     if (err) {
       return res.json("Error");
